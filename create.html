@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="site-header">
+            <h1 class="main-title">FutureCode IT Institute, Australia</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="event.preventDefault(); return false;">Home</a></li> <!-- Disable default behavior for Home link -->
+                    <li><a href="create.html">Create</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="about.html">About us</a></li>
+                   <li><a href="courses.html">Course</a></li>
+                    <li><a href="projects.html">Project</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <h1>Create Account</h1>
+    <form id="registerForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Register</button>
+    </form>
+    <script src="create.js"></script>
+    
+    <!-- Add JavaScript code -->
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents form default submission behavior
+            
+            // It is assumed that the form submission logic and account creation logic are complete and that the backend API can be invoked via AJAX
+            // Assume the following code is executed after the account is successfully created
+            localStorage.setItem('accountCreated', 'true'); // Set the sign that the account has been created
+            window.location.href = 'login.html'; // Go back to the login page
+        });
+    </script>
+</body>
+</html>
