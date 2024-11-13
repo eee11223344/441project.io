@@ -5,62 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FutureCode IT Institute, Australia</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Add JavaScript to handle the initial redirect -->
+    <!-- Add JavaScript to handle the login button click -->
     <script>
-        // Function to check if it's the first load and then redirect
-        function checkFirstLoadAndRedirect() {
-            if (!sessionStorage.getItem('firstLoadDone')) {
-                sessionStorage.setItem('firstLoadDone', 'true');
-                window.location.href = "create.html";
+        // Function to handle login button click
+        function handleLoginClick(event) {
+            // Check if a registration flag exists in sessionStorage
+            if (!sessionStorage.getItem('registrationCompleted')) {
+                alert("Please register before logging in.");
+                window.location.href = "create.html"; // Redirect to registration page
+            } else {
+                // If registered, you can proceed with login logic or simply redirect to login page
+                window.location.href = "login.html";
             }
         }
 
-        
-    // Function to check if it's the first load and then redirect
-    function checkFirstLoadAndRedirect() {
-        if (!sessionStorage.getItem('firstLoadDone')) {
-            sessionStorage.setItem('firstLoadDone', 'true');
-            window.location.href = "create.html";
-        }
-    }
-
-    // On page load, check for first load and handle redirection
-    window.onload = checkFirstLoadAndRedirect;
-
-    // Function to handle login button click
-    function handleLoginClick() {
-        // Check if a registration flag exists in sessionStorage
-        if (!sessionStorage.getItem('registrationCompleted')) {
-            alert("Please register before logging in.");
-            window.location.href = "create.html"; // Redirect to registration page
-        } else {
-            // If registered, you can proceed with login logic or simply redirect to login page
-            window.location.href = "login.html";
-        }
-    }
-
-    // Attach event listener to the Login link
-    document.addEventListener('DOMContentLoaded', function() {
-        var loginLink = document.querySelector('nav .nav-links a[href="login.html"]');
-        if (loginLink) {
-            loginLink.removeEventListener('click', handleLoginClick); // Remove any existing listener to avoid duplication
-            loginLink.addEventListener('click', handleLoginClick);
-        }
-    });
-
-
-        
+        // Attach event listener to the Login link
+        document.addEventListener('DOMContentLoaded', function() {
+            var loginLink = document.querySelector('nav .nav-links a[href="login.html"]');
+            if (loginLink) {
+                loginLink.removeEventListener('click', handleLoginClick); // Remove any existing listener to avoid duplication
+                loginLink.addEventListener('click', handleLoginClick);
+            }
+        });
     </script>
 </head>
-<body onload="checkFirstLoadAndRedirect()">
-    <!-- Your existing HTML content remains unchanged -->
-
+<body>
     <header>
         <div class="site-header">
             <h1 class="main-title">FutureCode IT Institute, Australia</h1>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#" onclick="event.preventDefault(); return false;">Home</a></li> <!-- Disable default behavior for Home link -->
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="create.html">Create</a></li>
                     <li><a href="login.html">Login</a></li>
                     <li><a href="about.html">About us</a></li>
@@ -71,46 +46,32 @@
         </div>
     </header>
 
+    
     <main>
-        <!-- Your sections content here -->
         <section class="Premier Programs">
             <h2>Premier Programs</h2>
-            <h2>1.Coding Foundations Accelerated</h2>
-            <h2>2.Secure Networks: Elite Defense Strategies</h2>
+            <h6>1.Coding Foundations Accelerated</h6>
+            <h6>2.Secure Networks: Elite Defense Strategies</h6>
         </section>
         
         <section class="Emerging Study Tracks">
             <h2>Emerging Study Tracks</h2>
-            <h2>1.Data Realm Mastery</h2>
-            <h2>2.Web Craftsmanship: End-to-End Development</h2>
-            
+            <h6>1.Data Realm Mastery</h6>
+            <h6>2.Web Craftsmanship: End-to-End Development</h6>
         </section>
 
         <section class="Industry Connect Series">
             <h2>Industry Connect Series</h2>
-            <h2>1.Tech Innovation Seminar</h2>
-            <h2>2.Career Catalyst Workshops</h2>
-            <h2>3.Project Showcase Platform</h2>
+            <h6>1.Tech Innovation Seminar</h6>
+            <h6>2.Career Catalyst Workshops</h6>
+            <h6>3.Project Showcase Platform</h6>
         </section>
-
     </main>
-
     <footer class="site-footer">
-        <!-- Footer content here -->
         <p>&copy; Jason@SunYingjie</p>
-     
         <p>Address:  Australia</p>
-            <p>Telephone Number: 112233</p>
-                <p>Email :11@11.com</p>
-
+        <p>Telephone Number: 112233</p>
+        <p>Email :11@11.com</p>
     </footer>
-
-    <!-- Add JavaScript to handle Home link click -->
-    <script>
-        document.querySelector('nav .nav-links li:first-child a').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default action
-            return false; // Ensure the link doesn't navigate anywhere
-        });
-    </script>
 </body>
 </html>
