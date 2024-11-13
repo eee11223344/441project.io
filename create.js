@@ -1,20 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const registerForm = document.getElementById('registerForm');
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+  event.preventDefault();
 
-  registerForm.addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent form submission
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
 
-      let username = document.getElementById('username').value;
-      let password = document.getElementById('password').value;
+ 
+  localStorage.setItem('loggedInUser', JSON.stringify({ username, password }));
 
-      localStorage.setItem("username", username);
-      localStorage.setItem("password", password);
+  
+  sessionStorage.setItem('registrationCompleted', 'true');
 
-      console.log("Stored user name:" + localStorage.getItem("username"));
-      console.log("Stored password:" + localStorage.getItem("password"));
-
-      alert('Registration successful! Please log in.');
-      localStorage.setItem('accountCreated', 'true'); // Set the sign that the account has been created
-      window.location.href = 'login.html'; // Redirect to login page
-  });
+  
+  alert('Registration successful! Please log in.');
+  window.location.href = 'login.html';
 });
